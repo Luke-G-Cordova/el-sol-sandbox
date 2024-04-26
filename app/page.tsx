@@ -12,12 +12,26 @@ export default function Home() {
       const sh = new SceneHandler();
       containerRef.current?.appendChild(sh.renderer.domElement);
 
-      fbxLoad('/NicPad_Uta_model.fbx', (object) => {
-        sh.scene.add(object);
-      });
-      fbxLoad('/NicPad_Body_Model.fbx', (object) => {
-        sh.scene.add(object);
-      });
+      for (let i = 0; i < 10; i++) {
+        fbxLoad('/NicPad_Uta_model.fbx', (object) => {
+          object.position.set(
+            Math.round(Math.random() * 200 - 100),
+            0,
+            // Math.round(Math.random() * 200 - 100),
+            Math.round(Math.random() * 200 - 100)
+          );
+          sh.scene.add(object);
+        });
+        fbxLoad('/NicPad_Body_Model.fbx', (object) => {
+          object.position.set(
+            Math.round(Math.random() * 200 - 100),
+            0,
+            // Math.round(Math.random() * 200 - 100),
+            Math.round(Math.random() * 200 - 100)
+          );
+          sh.scene.add(object);
+        });
+      }
 
       const stats = new Stats();
       document.body.appendChild(stats.dom);
