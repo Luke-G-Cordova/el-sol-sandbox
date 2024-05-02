@@ -19,9 +19,11 @@ export class SceneHandler {
   moveLeft = false;
   moveRight = false;
   canJump = true;
+  height: number;
   constructor() {
     this.time = 0;
     this.prevTime = 0;
+    this.height = 20;
     this.velocity = new THREE.Vector3();
     this.direction = new THREE.Vector3();
 
@@ -33,8 +35,8 @@ export class SceneHandler {
       1,
       1000
     );
-    this.camera.position.y = 10;
-    this.camera.lookAt(new THREE.Vector3(-1, 10, 0));
+    this.camera.position.y = this.height;
+    this.camera.lookAt(new THREE.Vector3(-1, this.height, 0));
     document.body.addEventListener('click', () => {
       this.controls.lock();
     });
@@ -163,7 +165,7 @@ export class SceneHandler {
     this.time = performance.now();
     if (this.controls.isLocked === true) {
       this.raycaster.ray.origin.copy(this.controls.getObject().position);
-      this.raycaster.ray.origin.y -= 10;
+      this.raycaster.ray.origin.y -= this.height;
 
       const delta = (this.time - this.prevTime) / 1000;
 
@@ -186,9 +188,9 @@ export class SceneHandler {
 
       this.controls.getObject().position.y += this.velocity.y * delta; // new behavior
 
-      if (this.controls.getObject().position.y < 10) {
+      if (this.controls.getObject().position.y < this.height) {
         this.velocity.y = 0;
-        this.controls.getObject().position.y = 10;
+        this.controls.getObject().position.y = this.height;
 
         this.canJump = true;
       }
