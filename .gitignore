@@ -35,7 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/public/Textures_Body_Model
-/public/Lights
-/public/UTA_Textures
 *.fbx
+/public/3d_assets
