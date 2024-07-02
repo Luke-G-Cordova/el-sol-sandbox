@@ -11,7 +11,7 @@ export class SceneHandler {
   time: number;
   prevTime: number;
   controls: PointerLockControls;
-  floor: THREE.Mesh;
+  // floor: THREE.Mesh;
   velocity: THREE.Vector3;
   direction: THREE.Vector3;
   moveForward = false;
@@ -23,7 +23,7 @@ export class SceneHandler {
   constructor() {
     this.time = 0;
     this.prevTime = 0;
-    this.height = 20;
+    this.height = 10;
     this.velocity = new THREE.Vector3();
     this.direction = new THREE.Vector3();
 
@@ -144,16 +144,16 @@ export class SceneHandler {
       this.position.setXYZ(i, this.vertex.x, this.vertex.y, this.vertex.z);
     }
 
-    floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
+    // floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
 
     this.position = floorGeometry.attributes.position;
 
-    const floorMaterial = new THREE.MeshBasicMaterial({
-      color: 0x3d392c,
-    });
+    // const floorMaterial = new THREE.MeshBasicMaterial({
+    //   color: 0x3d392c,
+    // });
 
-    this.floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    this.scene.add(this.floor);
+    // this.floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    // this.scene.add(this.floor);
 
     this.scene.add(this.controls.getObject());
 

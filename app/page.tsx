@@ -7,6 +7,7 @@ import {
   fbxLoad,
   customShaderMaterial,
   customTextures,
+  loadAllFiles,
 } from '@/app/util/loaders';
 
 export default function Home() {
@@ -16,8 +17,10 @@ export default function Home() {
       const sh = new SceneHandler();
       containerRef.current?.appendChild(sh.renderer.domElement);
 
-      loadUTAModel((obj) => sh.scene.add(obj));
-      loadBodyModel((obj) => sh.scene.add(obj));
+      loadAllFiles((obj) => sh.scene.add(obj));
+      //
+      // loadUTAModel((obj) => sh.scene.add(obj));
+      // loadBodyModel((obj) => sh.scene.add(obj));
 
       const stats = new Stats();
       document.body.appendChild(stats.dom);
@@ -39,6 +42,7 @@ export default function Home() {
       };
     }
   }, []);
+
   return <div ref={containerRef} />;
 }
 
