@@ -24,21 +24,23 @@ export const loadAllFiles = (
   ALL_DATA.models.forEach((model) => {
     fbxLoad(`/3d_assets/Bonsai_Models/${model.name}`, (ob) => {
       if (model.textures) {
-        if (ob.children.length == 0) {
+        if (ob.children.length > 1) {
           console.log(ob);
         }
-        if (model.textures.length > 2) {
-          (ob.children[0] as THREE.Mesh).material = customShaderMaterial(
-            customTextures([
-              ...model.textures.map((t) => `/3d_assets/Bonsai_Models/${t}`),
-            ])
-          );
-        } else {
-          (ob.children[0] as THREE.Mesh).material = alphaShaderMaterial(
-            customTextures([
-              ...model.textures.map((t) => `/3d_assets/Bonsai_Models/${t}`),
-            ])
-          );
+        for (const child of ob.children) {
+          if (model.textures.length > 2) {
+            (child as THREE.Mesh).material = customShaderMaterial(
+              customTextures([
+                ...model.textures.map((t) => `/3d_assets/Bonsai_Models/${t}`),
+              ])
+            );
+          } else {
+            (child as THREE.Mesh).material = doubleSidedShaderMaterial(
+              customTextures([
+                ...model.textures.map((t) => `/3d_assets/Bonsai_Models/${t}`),
+              ])
+            );
+          }
         }
       }
 
@@ -81,7 +83,34 @@ export const customTextures = (textureUrls: string[]) => {
   }
   return textures;
 };
+export const doubleSidedShaderMaterial = (textures: Array<any>) => {
+  return new THREE.ShaderMaterial({
+    uniforms: {
+      baseColorMap: { value: textures[0] },
+      alphaMap: { value: textures[1] },
+    },
+    vertexShader: `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      varying vec2 vUv;
+      uniform sampler2D baseColorMap;
+      uniform sampler2D alphaMap;
 
+      void main() {
+        vec4 baseColor = texture2D(baseColorMap, vUv);
+        float alpha = texture2D(alphaMap, vUv).r; // Assuming alpha is stored in the red channel
+        gl_FragColor = vec4(baseColor.rgb, alpha);
+      }
+    `,
+    transparent: true, // Enable transparency
+    side: THREE.DoubleSide, // Set material to double sided
+  });
+};
 export const alphaShaderMaterial = (textures: Array<any>) => {
   return new THREE.ShaderMaterial({
     uniforms: {

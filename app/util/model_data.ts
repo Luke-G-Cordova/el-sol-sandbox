@@ -319,8 +319,8 @@ export const ALL_DATA = {
       rotation: { x: -78.265, y: 108.64, z: -168.864 },
       scale: { x: 3.009, y: 3.009, z: 3.009 },
       textures: [
-        'Bonsai_Spruce01_texture_basecolor.png',
-        'Bonsai_Spruce01_texture_alpha.png',
+        'Bonsai_Pine01_texture_basecolor.png',
+        'Bonsai_Pine01_texture_alpha.png',
       ],
     },
     {
@@ -329,8 +329,8 @@ export const ALL_DATA = {
       rotation: { x: -78.265, y: 108.64, z: -168.864 },
       scale: { x: -1.992, y: -1.992, z: 1.992 },
       textures: [
-        'Bonsai_Spruce02_texture_basecolor.png',
-        'Bonsai_Spruce02_texture_alpha.png',
+        'Bonsai_Pine02_texture_basecolor.png',
+        'Bonsai_Pine02_texture_alpha.png',
       ],
     },
     {
@@ -339,8 +339,8 @@ export const ALL_DATA = {
       rotation: { x: -78.265, y: 108.64, z: -168.864 },
       scale: { x: -1.992, y: -1.992, z: 1.992 },
       textures: [
-        'Bonsai_Spruce03_texture_basecolor.png',
-        'Bonsai_Spruce03_texture_alpha.png',
+        'Bonsai_Pine03_texture_basecolor.png',
+        'Bonsai_Pine03_texture_alpha.png',
       ],
     },
     {
@@ -361,8 +361,8 @@ export const ALL_DATA = {
       rotation: { x: 90, y: 90, z: 0 },
       scale: { x: 6.72, y: 6.72, z: 6.72 },
       textures: [
-        'Bonsai_Pine01_texture_basecolor.png',
-        'Bonsai_Pine01_texture_alpha.png',
+        'Bonsai_Spruce01_texture_basecolor.png',
+        'Bonsai_Spruce01_texture_alpha.png',
       ],
     },
     {
@@ -371,8 +371,8 @@ export const ALL_DATA = {
       rotation: { x: 90, y: 90, z: 0 },
       scale: { x: 6.72, y: 6.72, z: 6.72 },
       textures: [
-        'Bonsai_Pine02_texture_basecolor.png',
-        'Bonsai_Pine02_texture_alpha.png',
+        'Bonsai_Spruce02_texture_basecolor.png',
+        'Bonsai_Spruce02_texture_alpha.png',
       ],
     },
     {
@@ -381,8 +381,8 @@ export const ALL_DATA = {
       rotation: { x: 90, y: 137.351, z: 0 },
       scale: { x: 6.134, y: 6.134, z: 6.134 },
       textures: [
-        'Bonsai_Pine03_texture_basecolor.png',
-        'Bonsai_Pine03_texture_alpha.png',
+        'Bonsai_Spruce03_texture_basecolor.png',
+        'Bonsai_Spruce03_texture_alpha.png',
       ],
     },
     {
