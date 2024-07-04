@@ -23,7 +23,7 @@ export class SceneHandler {
   constructor() {
     this.time = 0;
     this.prevTime = 0;
-    this.height = 10;
+    this.height = 11;
     this.velocity = new THREE.Vector3();
     this.direction = new THREE.Vector3();
 
@@ -47,19 +47,18 @@ export class SceneHandler {
 
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const light = new THREE.PointLight(0xffffff, 13000);
-    light.lookAt(new THREE.Vector3(0, 0, 0));
-    light.position.set(50, 50, 50);
-    light.castShadow = true;
-    this.scene.add(light);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-    this.scene.add(ambientLight);
-    const light2 = new THREE.PointLight(0xffffff, 1000);
-    light2.position.set(-50, 0, -50);
-    light2.lookAt(new THREE.Vector3(0, 0, 0));
-    light2.castShadow = true;
-    this.scene.add(light2);
+    // const light = new THREE.PointLight(0xffffff, 13000);
+    // light.lookAt(new THREE.Vector3(0, 0, 0));
+    // light.position.set(50, 50, 50);
+    // light.castShadow = true;
+    // this.scene.add(light);
+    // const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    // this.scene.add(ambientLight);
+    // const light2 = new THREE.PointLight(0xffffff, 1000);
+    // light2.position.set(-50, 0, -50);
+    // light2.lookAt(new THREE.Vector3(0, 0, 0));
+    // light2.castShadow = true;
+    // this.scene.add(light2);
 
     const onKeyDown = (event: KeyboardEvent) => {
       switch (event.code) {
