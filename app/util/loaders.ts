@@ -24,9 +24,6 @@ export const loadAllFiles = (
   ALL_DATA.models.forEach((model) => {
     fbxLoad(`/3d_assets/Bonsai_Models/${model.name}`, (ob) => {
       if (model.textures) {
-        if (ob.children.length > 1) {
-          console.log(ob);
-        }
         for (const child of ob.children) {
           if (model.textures.length > 2) {
             (child as THREE.Mesh).material = customShaderMaterial(
@@ -48,14 +45,14 @@ export const loadAllFiles = (
     });
   });
 
-  ALL_DATA.lights.forEach((light) => {
-    // console.log(light);
-    fbxLoad(`/3d_assets/Bonsai_Lights/${light.name}`, (ob) => {
-      // console.log(ob);
+  // ALL_DATA.lights.forEach((light) => {
+  //   // console.log(light);
+  //   fbxLoad(`/3d_assets/Bonsai_Lights/${light.name}`, (ob) => {
+  //     // console.log(ob);
 
-      loaded(ob);
-    });
-  });
+  //     loaded(ob);
+  //   });
+  // });
 };
 
 export function fbxLoad(
